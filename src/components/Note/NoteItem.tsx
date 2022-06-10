@@ -2,7 +2,8 @@ import React, { FC, useCallback } from 'react';
 import { INoteItem } from '../../types/types';
 import { IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
-import { EditTitleField } from './EditTitleField/EditTitleField';
+import { TitleField } from './TitleField/TitleField';
+import { TextField } from './TextFild/TextField';
 
 const NoteItem: FC<INoteItem> = (props) => {
   const addTagCallback = useCallback(
@@ -21,10 +22,21 @@ const NoteItem: FC<INoteItem> = (props) => {
 
   return (
     <div className="note_card">
-      <EditTitleField value={props.name} onChange={changeNoteTitleCallback} />
+      <TitleField value={props.name} onChange={changeNoteTitleCallback} />
       <IconButton onClick={() => props.deleteNote(props.id)}>
         <Delete />
       </IconButton>
+      <TextField
+        text={props.noteText}
+        id={props.id}
+        tag={props.tag}
+        changeText={function (newValue: string, id: string, newTag: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        addTag={function (tagName: string): void {
+          throw new Error('Function not implemented.');
+        }}
+      ></TextField>
 
       <div className="note_tag">{props.tag}</div>
     </div>

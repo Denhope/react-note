@@ -1,8 +1,8 @@
 import TextField from '@material-ui/core/TextField';
 import React, { ChangeEvent, FC, useCallback, useState } from 'react';
-import { IEditTitleField } from '../../../types/types';
+import { ITitleField } from '../../../types/types';
 
-export const EditTitleField: FC<IEditTitleField> = (props) => {
+export const TitleField: FC<ITitleField> = (props) => {
   const [title, setTitle] = useState(props.value);
   const [error, setError] = useState<string | null>(null);
   const [editMode, setEditMode] = useState<boolean>(false);
