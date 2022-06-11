@@ -1,0 +1,27 @@
+@import "../../utils/constants.module.scss";
+
+
+.NoteItem {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    width: 25rem;
+    height: 25rem;
+    background-color: $color-primery;
+    border-radius: 0.5rem;
+
+    overflow: hidden;
+}
+
+.NoteTitleWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContentWrapper {
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden
+}

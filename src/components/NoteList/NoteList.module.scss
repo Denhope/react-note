@@ -1,0 +1,8 @@
+@import "../../utils/constants.module.scss";
+
+.NoteList {
+    display: flex;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+    justify-content: center
+}

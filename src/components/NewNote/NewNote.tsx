@@ -1,8 +1,6 @@
 import React, { FC, useCallback, useState } from 'react';
-import './NewNote.module.scss';
-interface INewItem {
-  addNewNote: (title: string) => void;
-}
+import { INewItem } from '../../types/types';
+import s from './NewNote.module.scss';
 
 const AddNewNote: FC<INewItem> = ({ addNewNote }) => {
   const [value, setValue] = useState<string>('');
@@ -26,13 +24,13 @@ const AddNewNote: FC<INewItem> = ({ addNewNote }) => {
   }, [addNewNote, value]);
 
   return (
-    <div className="NewNote">
+    <div className={s.NewNote}>
       <input
         type="text"
         value={value}
         onChange={changeHandler}
         className="input"
-        placeholder="Note Title"
+        placeholder="Add Note Title"
       />
       <button onClick={addItem}>addNewNote</button>
     </div>

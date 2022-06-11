@@ -1,19 +1,20 @@
 import React, { ChangeEvent, FC, useCallback, useState } from 'react';
 import { ITextField } from '../../../types/types';
-
+import s from './TextField.module.scss';
 export const TextField: FC<ITextField> = (props) => {
   const [value, setValue] = useState<string>(props.text);
   const [editMode, setEditMode] = useState<boolean>(false);
 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(e.currentTarget.value);
+    if (e.target.value.length <= 640) {
+      setValue(e.currentTarget.value);
+    }
   };
 
   const activeViewMode = () => {
     if (value.trim() !== '') {
       setEditMode(false);
       getNewTag();
-      // props.changeText(value, props.id, props.tag);
     } else {
       setValue('Enter some text');
     }
@@ -46,19 +47,18 @@ export const TextField: FC<ITextField> = (props) => {
     <div>
       <div>
         <textarea
-          className="textArea"
-          cols={20}
-          rows={10}
+          cols={25}
+          rows={5}
+          className={s.Textarea}
           value={value}
           onChange={onChangeHandler}
           onBlur={activeViewMode}
         ></textarea>
       </div>
-      <div className="1111"></div>
     </div>
   ) : (
-    <div onClick={clickHandler} className="TextField">
-      <p>{value}</p>
+    <div onClick={clickHandler} className={s.TextWrapper}>
+      <p className={s.NoteTextWrapper}>{value}</p>
     </div>
   );
 };

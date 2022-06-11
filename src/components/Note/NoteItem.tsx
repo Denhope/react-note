@@ -4,6 +4,7 @@ import { IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import { TitleField } from './TitleField/TitleField';
 import { TextField } from './TextFild/TextField';
+import s from './NoteItem.module.scss';
 
 const NoteItem: FC<INoteItem> = (props) => {
   const addTagCallback = useCallback(
@@ -21,20 +22,23 @@ const NoteItem: FC<INoteItem> = (props) => {
   );
 
   return (
-    <div className="note_card">
-      <TitleField value={props.name} onChange={changeNoteTitleCallback} />
-      <IconButton onClick={() => props.deleteNote(props.id)}>
-        <Delete />
-      </IconButton>
-      <TextField
-        text={props.noteText}
-        id={props.id}
-        tag={props.tag}
-        changeText={props.changeText}
-        addTag={addTagCallback}
-      ></TextField>
-
-      <div className="note_tag">{props.tag}</div>
+    <div className={s.NoteItem}>
+      <div className={s.NoteTitleWrapper}>
+        <TitleField value={props.name} onChange={changeNoteTitleCallback} />
+        <IconButton onClick={() => props.deleteNote(props.id)}>
+          <Delete />
+        </IconButton>
+      </div>
+      <div className={s.ContentWrapper}>
+        <TextField
+          text={props.noteText}
+          id={props.id}
+          tag={props.tag}
+          changeText={props.changeText}
+          addTag={addTagCallback}
+        ></TextField>
+        <div className={s.NoteTag}>{props.tag}</div>
+      </div>
     </div>
   );
 };

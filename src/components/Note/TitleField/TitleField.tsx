@@ -1,7 +1,7 @@
 import TextField from '@material-ui/core/TextField';
 import React, { ChangeEvent, FC, useCallback, useState } from 'react';
 import { ITitleField } from '../../../types/types';
-
+import s from './TitleField.module.scss';
 export const TitleField: FC<ITitleField> = (props) => {
   const [title, setTitle] = useState(props.value);
   const [error, setError] = useState<string | null>(null);
@@ -14,7 +14,7 @@ export const TitleField: FC<ITitleField> = (props) => {
     if (title.trim() !== '') {
       setEditMode(false);
       props.onChange(title);
-    } else setError('Title is required!');
+    } else setError('Please enter Title');
   };
 
   const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +24,7 @@ export const TitleField: FC<ITitleField> = (props) => {
 
   return editMode ? (
     <TextField
+      className={s.NoteItemTitle}
       value={title}
       onChange={changeTitle}
       autoFocus
@@ -32,7 +33,7 @@ export const TitleField: FC<ITitleField> = (props) => {
       onBlur={activateViewMode}
     />
   ) : (
-    <span onClick={clickHandler} className="note_title">
+    <span onClick={clickHandler} className={s.NoteItemTitle}>
       {props.value}
     </span>
   );

@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { ITagItem } from '../../../types/types';
-
 import TagItem from '../TagItem';
-// import s from "./TagsDisplay.module.scss"
+import s from './Taglist.module.scss';
 
 interface TagsListProps {
   tags: Array<ITagItem>;
@@ -21,7 +20,7 @@ const TagsDisplay: FC<TagsListProps> = (props) => {
       selectTag={props.selectTag}
     />
   ));
-  return <div className="">{mappedTags}</div>;
+  return <div className={s.TagsList}>{mappedTags}</div>;
 };
 
 export default TagsDisplay;

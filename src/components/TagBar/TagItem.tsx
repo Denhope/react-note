@@ -3,7 +3,7 @@ import { Delete } from '@material-ui/icons';
 import React, { FC, useCallback } from 'react';
 import { ITagProps } from '../../types/types';
 
-// import s from './Tag.module.scss';
+import s from './TagItem.module.scss';
 
 const TagItem: FC<ITagProps> = (props) => {
   const onTagClickHandler = useCallback(() => {
@@ -14,7 +14,7 @@ const TagItem: FC<ITagProps> = (props) => {
   }, [props.deleteTag, props.id]);
 
   return (
-    <div className={props.selected ? 'SelectedTag' : 'Tag'}>
+    <div className={props.selected ? s.SelectedTag : s.Tag}>
       <div className="tagName" onClick={onTagClickHandler}>
         {props.name}
       </div>

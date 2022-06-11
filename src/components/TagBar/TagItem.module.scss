@@ -1,0 +1,16 @@
+@import "../../utils/constants.module.scss";
+
+.Tag,
+.SelectedTag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-primery;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.SelectedTag {
+    background-color: $color-dark-m
+}

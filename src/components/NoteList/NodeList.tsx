@@ -1,6 +1,7 @@
-import React, { FC, useCallback } from 'react';
-import { INoteItem, INoteList } from '../../types/types';
+import React, { FC } from 'react';
+import { INoteList } from '../../types/types';
 import NoteItem from '../Note/NoteItem';
+import s from './NoteList.module.scss';
 
 const NoteList: FC<INoteList> = (props) => {
   const addedNotes = props.notes.map((noteItem) => (
@@ -16,7 +17,7 @@ const NoteList: FC<INoteList> = (props) => {
       changeNoteTitle={props.changeNoteTitle}
     />
   ));
-  return <div className="note-list-container">{addedNotes}</div>;
+  return <div className={s.NoteList}>{addedNotes}</div>;
 };
 
 export default NoteList;

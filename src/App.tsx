@@ -1,8 +1,7 @@
 import TextField from '@material-ui/core/TextField/TextField';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-// import './App.scss';
+import s from './App.module.scss';
 import NewNote from './components/NewNote/NewNote';
 import NoteList from './components/NoteList/NodeList';
 import TagsList from './components/TagBar/TagList/TagList';
@@ -48,7 +47,7 @@ export const App = () => {
     filtredNotes = notes.filter((note) => note.tag === selectedTag);
   }
   return (
-    <div className=" App">
+    <div className={s.App}>
       <NewNote addNewNote={addNewNote}></NewNote>
       <TagsList tags={tags} deleteTag={deleteTagItem} selectTag={selectTagItem} />
       <NoteList

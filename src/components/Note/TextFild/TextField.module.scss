@@ -1,0 +1,32 @@
+@import "../../../utils/constants.module.scss";
+@import "../../../utils/mixins.module.scss";
+
+.Textarea {
+
+    @include font (1.5rem, $hight: 1.5, $wight: 400);
+    min-width: 23rem;
+    resize: vertical;
+    min-height: 15rem;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    position: relative;
+    background-color: transparent;
+    z-index: 2;
+    overflow: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    @include media-mobile {
+        width: 28rem;
+        padding: 1rem;
+    }
+}
+
+.NoteTextWrapper {
+    min-width: 23rem;
+
+    min-height: 15rem;
+    cursor: pointer;
+}
