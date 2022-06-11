@@ -20,6 +20,7 @@ export const TextField: FC<ITextField> = (props) => {
 
   const clickHandler = () => {
     setEditMode(true);
+    const tagItem = props.tag;
   };
 
   return editMode ? (
@@ -27,8 +28,8 @@ export const TextField: FC<ITextField> = (props) => {
       <div>
         <textarea
           className="textArea"
-          cols={45}
-          rows={15}
+          cols={20}
+          rows={10}
           value={value}
           onChange={onChangeHandler}
           onBlur={activeViewMode}

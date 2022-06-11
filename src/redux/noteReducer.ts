@@ -1,4 +1,4 @@
-import { NoteType } from '../types/types';
+import { NoteItemType } from '../types/types';
 import noteData from '../data/noteData.json';
 import { v1 } from 'uuid';
 
@@ -8,8 +8,8 @@ const DELETE_NOTE = 'DELETE_NOTE';
 const CHANGE_NOTE = 'CHANGE_NOTE';
 
 const initialState = [
-  { id: v1(), name: 'Title', tag: '#tag', noteText: 'Enter same text' },
-  { id: v1(), name: 'Title', tag: '#tag', noteText: 'Enter same text2' },
+  { id: v1(), name: 'Title', tag: '#', noteText: 'Enter same text' },
+  { id: v1(), name: 'Title', tag: '#', noteText: 'Enter same text2' },
 ];
 
 // const initialState = noteData.map((note) => {
@@ -20,7 +20,7 @@ const initialState = [
 // });
 
 export type ActionsType = addNewNoteType | changeTitleType | deleteNoteType | changeNoteType;
-export function notesReducer(state: Array<NoteType> = initialState, action: ActionsType) {
+export function notesReducer(state: Array<NoteItemType> = initialState, action: ActionsType) {
   switch (action.type) {
     case ADD_NEW_NOTE: {
       const newNotes = [

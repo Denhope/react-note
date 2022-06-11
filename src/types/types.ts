@@ -2,13 +2,13 @@ export interface INewItem {
   addNewNote: (title: string) => void;
 }
 
-export type NoteType = {
+export type NoteItemType = {
   id: string;
   name: string;
   tag: string;
   noteText: string;
 };
-export interface INoteItem extends NoteType {
+export interface INoteItem extends NoteItemType {
   changeText: (newValue: string, id: string, newTag: string) => void;
   addTag: (tagName: string, noteId: string) => void;
   deleteNote: (id: string) => void;
@@ -20,7 +20,7 @@ export interface ITitleField {
 }
 
 export interface INoteList {
-  notes: Array<NoteType>;
+  notes: Array<NoteItemType>;
   changeText: (newValue: string, id: string, newTag: string) => void;
   addTag: (tagName: string, noteId: string) => void;
   deleteNote: (npteId: string) => void;
@@ -34,3 +34,23 @@ export interface ITextField {
   changeText: (newValue: string, id: string, newTag: string) => void;
   addTag: (tagName: string) => void;
 }
+
+export interface ITagItem {
+  id: string;
+  tagName: string;
+  selected: boolean;
+}
+
+export interface ITagProps {
+  name: string;
+  id: string;
+  selected: boolean;
+  deleteTag: (id: string) => void;
+  selectTag: (tagName: string) => void;
+}
+
+export type TagItemType = {
+  id: string;
+  tagName: string;
+  selected: boolean;
+};
