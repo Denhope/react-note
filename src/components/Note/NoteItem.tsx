@@ -30,9 +30,7 @@ const NoteItem: FC<INoteItem> = (props) => {
         text={props.noteText}
         id={props.id}
         tag={props.tag}
-        changeText={function (newValue: string, id: string, newTag: string): void {
-          throw new Error('Function not implemented.');
-        }}
+        changeText={props.changeText}
         addTag={function (tagName: string): void {
           throw new Error('Function not implemented.');
         }}
