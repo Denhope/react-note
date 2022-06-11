@@ -12,15 +12,34 @@ export const TextField: FC<ITextField> = (props) => {
   const activeViewMode = () => {
     if (value.trim() !== '') {
       setEditMode(false);
-      props.changeText(value, props.id, props.tag);
+      getNewTag();
+      // props.changeText(value, props.id, props.tag);
     } else {
       setValue('Enter some text');
     }
   };
 
+  const getNewTag = useCallback(() => {
+    const hashTagIndex = value.indexOf('#');
+    if (hashTagIndex === -1) {
+      props.addTag('#all');
+      props.changeText(value, props.id, '#all');
+    } else {
+      let result = '';
+      for (let i = hashTagIndex; i < value.length; i++) {
+        if (value[i] !== ' ') {
+          result = result + value[i];
+        } else {
+          break;
+        }
+      }
+      props.addTag(result);
+      props.changeText(value, props.id, result);
+    }
+  }, [props.changeText, props.addTag, props.id, value]);
+
   const clickHandler = () => {
     setEditMode(true);
-    const tagItem = props.tag;
   };
 
   return editMode ? (

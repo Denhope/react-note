@@ -28,7 +28,7 @@ export const App = () => {
   };
 
   const changeTextField = (newValue: string, id: string, newTag: string) => {
-    dispatch(changeNote(newValue, id));
+    dispatch(changeNote(newValue, id, newTag));
   };
 
   const selectTagItem = (tagName: string) => {
@@ -43,12 +43,16 @@ export const App = () => {
   const addTagItem = (tagName: string, noteId: string) => {
     dispatch(addTag(tagName));
   };
+  let filtredNotes = notes;
+  if (selectedTag !== '#all') {
+    filtredNotes = notes.filter((note) => note.tag === selectedTag);
+  }
   return (
     <div className=" App">
       <NewNote addNewNote={addNewNote}></NewNote>
       <TagsList tags={tags} deleteTag={deleteTagItem} selectTag={selectTagItem} />
       <NoteList
-        notes={notes}
+        notes={filtredNotes}
         changeText={changeTextField}
         addTag={addTagItem}
         deleteNote={deleteNoteItem}

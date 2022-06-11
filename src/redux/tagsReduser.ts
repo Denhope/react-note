@@ -14,8 +14,9 @@ const DELETE_TAG = 'DELETE_TAG';
 // });
 
 const initialState = [
-  { id: v1(), tagName: '#shop', selected: false },
   { id: v1(), tagName: '#working', selected: false },
+  { id: v1(), tagName: '#study', selected: false },
+  { id: v1(), tagName: '#all', selected: true },
 ];
 
 export const tagsReducer = (state: Array<ITagItem> = initialState, action: ActionsType) => {
@@ -30,7 +31,7 @@ export const tagsReducer = (state: Array<ITagItem> = initialState, action: Actio
     }
     case ADD_TAG: {
       let newTags = state;
-      const currentTag = newTags.find((tag) => tag.tagName === action.payload.tagName);
+      let currentTag = newTags.find((tag) => tag.tagName === action.payload.tagName);
       if (currentTag === undefined) {
         newTags = [...state, { id: v1(), tagName: action.payload.tagName, selected: false }];
         return newTags;

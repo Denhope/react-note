@@ -8,8 +8,18 @@ const DELETE_NOTE = 'DELETE_NOTE';
 const CHANGE_NOTE = 'CHANGE_NOTE';
 
 const initialState = [
-  { id: v1(), name: 'Title', tag: '#', noteText: 'Enter same text' },
-  { id: v1(), name: 'Title', tag: '#', noteText: 'Enter same text2' },
+  {
+    id: v1(),
+    name: 'First note',
+    tag: '#stydy',
+    noteText: 'What to learn: TS#study',
+  },
+  {
+    id: v1(),
+    name: 'Second note',
+    tag: '#working',
+    noteText: 'I wont be working #working',
+  },
 ];
 
 // const initialState = noteData.map((note) => {
@@ -25,7 +35,7 @@ export function notesReducer(state: Array<NoteItemType> = initialState, action: 
     case ADD_NEW_NOTE: {
       const newNotes = [
         ...state,
-        { id: v1(), name: action.payload.title, tag: '#tag', noteText: 'Enter some text' },
+        { id: v1(), name: action.payload.title, tag: '#all', noteText: 'Enter some text' },
       ];
       return newNotes;
     }
@@ -41,7 +51,9 @@ export function notesReducer(state: Array<NoteItemType> = initialState, action: 
     }
     case CHANGE_NOTE: {
       let newNotes = state.map((note) =>
-        note.id === action.payload.noteId ? { ...note, noteText: action.payload.newValue } : note,
+        note.id === action.payload.noteId
+          ? { ...note, noteText: action.payload.newValue, tag: action.payload.newTag }
+          : note,
       );
       return [...newNotes];
     }
@@ -82,12 +94,13 @@ export const deleteNote = (noteId: string) => {
 };
 export type deleteNoteType = ReturnType<typeof deleteNote>;
 
-export const changeNote = (newValue: string, noteId: string) => {
+export const changeNote = (newValue: string, noteId: string, newTag: string) => {
   return {
     type: CHANGE_NOTE,
     payload: {
       newValue,
       noteId,
+      newTag,
     },
   } as const;
 };

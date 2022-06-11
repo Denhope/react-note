@@ -31,9 +31,7 @@ const NoteItem: FC<INoteItem> = (props) => {
         id={props.id}
         tag={props.tag}
         changeText={props.changeText}
-        addTag={function (tagName: string): void {
-          throw new Error('Function not implemented.');
-        }}
+        addTag={addTagCallback}
       ></TextField>
 
       <div className="note_tag">{props.tag}</div>
