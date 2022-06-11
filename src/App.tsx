@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import './App.scss';
 import NewNote from './components/NewNote/NewNote';
 import NoteList from './components/NoteList/NodeList';
-import { addNote, changeTitle } from './redux/noteReducer';
+import { addNote, changeTitle, deleteNote } from './redux/noteReducer';
 import { AppRootStateType } from './redux/store';
 import { NoteType } from './types/types';
 
@@ -18,6 +18,10 @@ export const App = () => {
   const changeNoteTitle = (newValue: string, id: string) => {
     dispatch(changeTitle(newValue, id));
   };
+
+  const deleteNoteItem = (id: string) => {
+    dispatch(deleteNote(id));
+  };
   return (
     <div className=" App">
       <NewNote addNewNote={addNewNote}></NewNote>
@@ -29,9 +33,7 @@ export const App = () => {
         addTag={function (tagName: string, noteId: string): void {
           throw new Error('Function not implemented.');
         }}
-        deleteNote={function (npteId: string): void {
-          throw new Error('Function not implemented.');
-        }}
+        deleteNote={deleteNoteItem}
         changeNoteTitle={changeNoteTitle}
       ></NoteList>
     </div>

@@ -4,6 +4,7 @@ import { v1 } from 'uuid';
 
 const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
 const CHANGE_NOTE_TITLE = 'CHANGE_NOTE_TITLE';
+const DELETE_NOTE = 'DELETE_NOTE';
 
 const initialState = [
   { id: v1(), name: 'Title', tag: '#tag', noteText: 'Enter same text' },
@@ -17,7 +18,7 @@ const initialState = [
 //   };
 // });
 
-export type ActionsType = addNewNoteType | changeTitleType;
+export type ActionsType = addNewNoteType | changeTitleType | deleteNoteType;
 export function notesReducer(state: Array<NoteType> = initialState, action: ActionsType) {
   switch (action.type) {
     case ADD_NEW_NOTE: {
@@ -31,6 +32,10 @@ export function notesReducer(state: Array<NoteType> = initialState, action: Acti
       const newNotes = state.map((note) =>
         note.id === action.payload.noteId ? { ...note, name: action.payload.newValue } : note,
       );
+      return [...newNotes];
+    }
+    case DELETE_NOTE: {
+      const newNotes = state.filter((note) => note.id !== action.payload.noteId);
       return [...newNotes];
     }
     default:
@@ -59,3 +64,13 @@ export const changeTitle = (newValue: string, noteId: string) => {
   } as const;
 };
 export type changeTitleType = ReturnType<typeof changeTitle>;
+
+export function deleteNote(noteId: string) {
+  return {
+    type: DELETE_NOTE,
+    payload: {
+      noteId,
+    },
+  } as const;
+}
+export type deleteNoteType = ReturnType<typeof deleteNote>;
