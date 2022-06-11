@@ -2,7 +2,6 @@
 @import "../../../utils/mixins.module.scss";
 
 .Textarea {
-
     @include font (1.5rem, $hight: 1.5, $wight: 400);
     min-width: 23rem;
     resize: vertical;
@@ -14,19 +13,18 @@
     z-index: 2;
     overflow: hidden;
 
-    &::-webkit-scrollbar {
-        width: 0px;
-    }
-
     @include media-mobile {
-        width: 28rem;
+        width: 30rem;
         padding: 1rem;
     }
 }
 
 .NoteTextWrapper {
     min-width: 23rem;
-
+    padding: 1rem;
+    transition: all .3s;
+    width: 100%;
     min-height: 15rem;
     cursor: pointer;
+
 }

@@ -48,15 +48,17 @@ export const App = () => {
   }
   return (
     <div className={s.App}>
-      <NewNote addNewNote={addNewNote}></NewNote>
-      <TagsList tags={tags} deleteTag={deleteTagItem} selectTag={selectTagItem} />
-      <NoteList
-        notes={filtredNotes}
-        changeText={changeTextField}
-        addTag={addTagItem}
-        deleteNote={deleteNoteItem}
-        changeNoteTitle={changeNoteTitle}
-      ></NoteList>
+      <div className={s.AppWrapper}>
+        <NewNote addNewNote={addNewNote}></NewNote>
+        <TagsList tags={tags} deleteTag={deleteTagItem} selectTag={selectTagItem} />
+        <NoteList
+          notes={filtredNotes}
+          changeText={changeTextField}
+          addTag={addTagItem}
+          deleteNote={deleteNoteItem}
+          changeNoteTitle={changeNoteTitle}
+        ></NoteList>
+      </div>
     </div>
   );
 };

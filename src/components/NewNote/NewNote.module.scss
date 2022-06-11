@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
-
+    gap: 2rem;
 
     input {
 
@@ -25,4 +25,8 @@
             color: $color-dark-3xl;
         }
     }
+}
+
+.ButtonSubmit {
+    border-radius: 1rem;
 }

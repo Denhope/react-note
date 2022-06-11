@@ -1,3 +1,7 @@
+@import './mixins.module.scss';
+@import "./constants.module.scss";
+@import "./placeholders.module.scss";
+
 html {
     font-size: 10px;
     scroll-behavior: smooth;
@@ -5,32 +9,18 @@ html {
 
 body {
     font-size: 1.6rem;
-    @extend %font;
+    // @extend %font;
 }
 
 .body_lock {
     overflow: hidden;
 }
 
-h1 {
-    margin: 0;
-    @include font(3.2rem, 3.5rem, $color: $color-primery);
-}
-
-h2 {
-    margin: 0;
-    @include font(4.4rem, 5.72rem, $color: $color-light-xl);
-
-    @include media-mobile {
-        @include font(2.5rem, 3.2rem, $color: $color-light-xl);
-        letter-spacing: 0.06em;
-    }
-}
-
 
 p {
-    @include font(1.5rem, 160%, $color: $color-dark-s);
+    @include font(1.5rem, 160%, $color: $black);
     @extend %font-primery;
+    letter-spacing: 0.06em;
     margin: 0;
 }
 

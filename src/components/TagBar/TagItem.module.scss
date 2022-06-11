@@ -1,4 +1,5 @@
 @import "../../utils/constants.module.scss";
+@import "../../utils/placeholders.module.scss";
 
 .Tag,
 .SelectedTag {
@@ -8,9 +9,30 @@
     background-color: $color-primery;
     border-radius: 0.5rem;
     padding: 0.5rem;
-    cursor: pointer;
+    // cursor: pointer;
+    gap: 2rem;
+
+    &:hover {
+        @extend %transition;
+        box-shadow: 0 8px 13px 5px rgba(0, 0, 0, 0.26);
+    }
+
 }
 
 .SelectedTag {
     background-color: $color-dark-m
+}
+
+.TagItemName {
+    cursor: pointer;
+}
+
+
+.button {
+    // margin-left: 5px;
+    text-align: center;
+    width: 7rem;
+    display: inline-block;
+    cursor: pointer;
+
 }

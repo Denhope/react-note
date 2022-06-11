@@ -15,7 +15,7 @@ const TagItem: FC<ITagProps> = (props) => {
 
   return (
     <div className={props.selected ? s.SelectedTag : s.Tag}>
-      <div className="tagName" onClick={onTagClickHandler}>
+      <div className={s.TagItemName} onClick={onTagClickHandler}>
         {props.name}
       </div>
       <div className="button">

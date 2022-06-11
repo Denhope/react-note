@@ -12,5 +12,5 @@
     "isolatedModules": true,
     "types": ["node"]
   },
-  "files": ["src/index.tsx"]
+  "files": ["src/index.tsx", "module.d.ts"]
 }

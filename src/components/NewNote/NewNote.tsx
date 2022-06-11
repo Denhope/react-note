@@ -32,7 +32,9 @@ const AddNewNote: FC<INewItem> = ({ addNewNote }) => {
         className="input"
         placeholder="Add Note Title"
       />
-      <button onClick={addItem}>addNewNote</button>
+      <button className={s.ButtonSubmit} onClick={addItem}>
+        addNewNote
+      </button>
     </div>
   );
 };

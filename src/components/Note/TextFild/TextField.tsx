@@ -45,20 +45,18 @@ export const TextField: FC<ITextField> = (props) => {
 
   return editMode ? (
     <div>
-      <div>
-        <textarea
-          cols={25}
-          rows={5}
-          className={s.Textarea}
-          value={value}
-          onChange={onChangeHandler}
-          onBlur={activeViewMode}
-        ></textarea>
-      </div>
+      <textarea
+        cols={25}
+        rows={5}
+        className={s.Textarea}
+        value={value}
+        onChange={onChangeHandler}
+        onBlur={activeViewMode}
+      ></textarea>
     </div>
   ) : (
-    <div onClick={clickHandler} className={s.TextWrapper}>
-      <p className={s.NoteTextWrapper}>{value}</p>
+    <div onClick={clickHandler} className={s.NoteTextWrapper}>
+      <p>{value}</p>
     </div>
   );
 };
