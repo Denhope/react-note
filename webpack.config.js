@@ -12,8 +12,10 @@ const stylesHandler = isProduction
 
 const config = {
   entry: "./src/index.tsx",
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: 'script.js',
   },
   devServer: {
     open: true,
@@ -54,6 +56,7 @@ const config = {
       {
         test: /\.json$/i,
         type: 'asset/resource',
+
       },
 
       // Add your rules for custom modules here
@@ -61,11 +64,12 @@ const config = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", "json"],
   },
 };
 
 module.exports = () => {
+
   if (isProduction) {
     config.mode = "production";
 
