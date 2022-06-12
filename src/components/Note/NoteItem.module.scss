@@ -7,7 +7,7 @@
     padding: 1rem;
     flex-direction: column;
     width: 25rem;
-    min-height: 25rem;
+    height: 30rem;
     background-color: $color-primery;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -20,14 +20,21 @@
 
 .NoteTitleWrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 6rem
+    gap: 6rem;
+    overflow: hidden;
 }
 
 .ContentWrapper {
     display: flex;
     flex-direction: column;
-
     overflow: hidden
+}
+
+.NoteTag {
+    display: block;
+    padding: 1rem;
+    max-width: 10rem;
+    overflow: hidden;
 }

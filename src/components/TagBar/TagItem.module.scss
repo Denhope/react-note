@@ -25,14 +25,14 @@
 
 .TagItemName {
     cursor: pointer;
+    width: 5rem;
+    overflow: hidden;
 }
 
 
 .button {
-    // margin-left: 5px;
     text-align: center;
     width: 7rem;
     display: inline-block;
     cursor: pointer;
-
 }

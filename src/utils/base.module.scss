@@ -10,6 +10,7 @@ html {
 body {
     font-size: 1.6rem;
     // @extend %font;
+    @extend %transition;
 }
 
 .body_lock {

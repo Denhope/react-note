@@ -5,13 +5,12 @@
     @include font (1.5rem, $hight: 1.5, $wight: 400);
     min-width: 23rem;
     resize: vertical;
-    min-height: 15rem;
+    height: 20rem;
     padding: 1.5rem;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     position: relative;
     background-color: transparent;
-    z-index: 2;
-    overflow: hidden;
+    resize: none;
 
     @include media-mobile {
         width: 30rem;
@@ -24,7 +23,12 @@
     padding: 1rem;
     transition: all .3s;
     width: 100%;
-    min-height: 15rem;
+    height: 25rem;
     cursor: pointer;
+    overflow: hidden
+}
 
+.TextContent {
+    overflow: hidden;
+    word-wrap: break-word
 }
