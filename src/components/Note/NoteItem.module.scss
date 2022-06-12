@@ -1,5 +1,6 @@
 @import "../../utils/constants.module.scss";
 @import "../../utils/placeholders.module.scss";
+@import "../../utils/mixins.module.scss";
 
 
 .NoteItem {
@@ -11,6 +12,12 @@
     background-color: $color-primery;
     border-radius: 0.5rem;
     overflow: hidden;
+
+    @include media-mobile {
+        width: 32rem;
+        padding: 1rem;
+    }
+
 
     &:hover {
         @extend %transition;

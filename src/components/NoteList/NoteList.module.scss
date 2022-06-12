@@ -1,8 +1,13 @@
 @import "../../utils/constants.module.scss";
+@import "../../utils/mixins.module.scss";
 
 .NoteList {
     display: flex;
     gap: 3.5rem;
     flex-wrap: wrap;
-    justify-content: center
+    justify-content: center;
+
+    @include media-mobile {
+        gap: 2rem
+    }
 }
