@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FC, useCallback, useState } from 'react';
+import React, { ChangeEvent, FC, MouseEventHandler, useCallback, useState } from 'react';
 import { ITextField } from '../../../types/types';
 import s from './TextField.module.scss';
 export const TextField: FC<ITextField> = (props) => {
   const [value, setValue] = useState<string>(props.text);
   const [editMode, setEditMode] = useState<boolean>(false);
-
+  // const [markedupText, setMarkedUpText] = useState<string>('');
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     if (e.target.value.length <= 640) {
       setValue(e.currentTarget.value);
@@ -41,6 +41,8 @@ export const TextField: FC<ITextField> = (props) => {
 
   const clickHandler = () => {
     setEditMode(true);
+    // let MarkedText = props.tag;
+    // let editValue = value.replace(MarkedText, '<mark>' + MarkedText + '</mark>');
   };
 
   return editMode ? (
@@ -56,7 +58,7 @@ export const TextField: FC<ITextField> = (props) => {
     </div>
   ) : (
     <div onClick={clickHandler} className={s.NoteTextWrapper}>
-      <p>{value}</p>
+      <p className={s.TextContent}>{value}</p>
     </div>
   );
 };
