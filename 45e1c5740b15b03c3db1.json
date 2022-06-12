@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "tagName": "#shop",
+    "selected": false
+  },
+  {
+    "id": "2",
+    "tagName": "#study",
+    "selected": false
+  },
+  {
+    "id": "3",
+    "tagName": "#all",
+    "selected": true
+  }
+]
