@@ -48,9 +48,28 @@ export interface ITagProps {
   deleteTag: (id: string) => void;
   selectTag: (tagName: string) => void;
 }
+export interface TagsListProps {
+  tags: Array<ITagItem>;
+  deleteTag: (id: string) => void;
+  selectTag: (tagName: string) => void;
+}
 
 export type TagItemType = {
   id: string;
   tagName: string;
   selected: boolean;
 };
+
+export interface INoteItemData {
+  id: string;
+  name: string;
+  tag: string;
+  noteText: string;
+}
+
+export interface INoteDto {
+  id: string;
+  name: string;
+  tag: string;
+  noteText: string;
+}

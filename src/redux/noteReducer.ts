@@ -1,11 +1,36 @@
-import { NoteItemType } from '../types/types';
-import noteData from '../data/noteData.json';
+import { INoteItemData, NoteItemType } from '../types/types';
+import data from '../assets/data/noteData1.json';
 import { v1 } from 'uuid';
 
 const ADD_NEW_NOTE = 'ADD_NEW_NOTE';
 const CHANGE_NOTE_TITLE = 'CHANGE_NOTE_TITLE';
 const DELETE_NOTE = 'DELETE_NOTE';
 const CHANGE_NOTE = 'CHANGE_NOTE';
+const NOTE_LOAD = 'NOTE_LOAD';
+
+async function loadNotesdata(url: string): Promise<Array<INoteItemData>> {
+  const res = await fetch(url);
+  const notesData = await res.json();
+  const modelData: Array<INoteItemData> = Object.keys(notesData).map((it) => {
+    const item = notesData[it];
+    const record: INoteItemData = {
+      id: item.id,
+      tag: item.tag,
+      noteText: item.noteText,
+      name: item.name,
+    };
+    return record;
+  });
+  console.log(modelData);
+  const initialState = modelData.map((note: any) => {
+    return {
+      ...note,
+      id: v1(),
+    };
+  });
+
+  return initialState;
+}
 
 const initialState = [
   {
@@ -21,13 +46,6 @@ const initialState = [
     noteText: 'I wont be working #working',
   },
 ];
-
-// const initialState = noteData.map((note) => {
-//   return {
-//     ...note,
-//     id: v1(),
-//   };
-// });
 
 export type ActionsType = addNewNoteType | changeTitleType | deleteNoteType | changeNoteType;
 export function notesReducer(state: Array<NoteItemType> = initialState, action: ActionsType) {

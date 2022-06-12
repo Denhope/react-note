@@ -1,17 +1,10 @@
 import { v1 } from 'uuid';
 import { ITagItem } from '../types/types';
-import tagData from '../data/tagData.json';
+import tagData from '../assets/data/tagData.json';
 
 const SELECT_TAG = 'SELECT_TAG';
 const ADD_TAG = 'ADD_TAG';
 const DELETE_TAG = 'DELETE_TAG';
-
-// let initialState = tagData.map((tag) => {
-//   return {
-//     ...tag,
-//     id: v1(),
-//   };
-// });
 
 const initialState = [
   { id: v1(), tagName: '#working', selected: false },
