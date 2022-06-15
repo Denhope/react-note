@@ -56,6 +56,7 @@ const config = {
       {
         test: /\.json$/i,
         type: 'asset/resource',
+        exclude: [path.resolve(__dirname, 'node_modules/axios/package.json')],
 
       },
 

@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
 import { NotesActionsType, NotesAction } from '../../types/notes';
 import dataNotes from '../.././assets/data/noteData1.json';
-
 import axios from 'axios';
 
 export const featchNotes = () => {
