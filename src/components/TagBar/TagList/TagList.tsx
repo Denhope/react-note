@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { TagsListProps } from '../../../types/types';
+import { TagsListProps } from '../../../types/tags';
+import {} from '../../../types/types';
 import TagItem from '../TagItem';
 import s from './Taglist.module.scss';
 

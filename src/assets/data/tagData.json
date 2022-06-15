@@ -1,16 +1,16 @@
 [
   {
-    "id": "",
+    "id": "1",
     "tagName": "#shop",
     "selected": true
   },
   {
-    "id": "",
+    "id": "2",
     "tagName": "#study",
     "selected": false
   },
   {
-    "id": "",
+    "id": "3",
     "tagName": "#all",
     "selected": false
   }
