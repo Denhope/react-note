@@ -11,6 +11,16 @@ export type NoteItemType = {
   tag: string;
   noteText: string;
 };
+export interface INoteItem {
+  id: string;
+  name: string;
+  tag: string;
+  noteText: string;
+  changeText: (newValue: string, id: string, newTag: string) => void;
+  addTag: (tagName: string, noteId: string) => void;
+  deleteNote: (id: string) => void;
+  changeNoteTitle: (newValue: string, noteId: string) => void;
+}
 
 export interface NotesState {
   notesData: Array<NoteItemType>;
@@ -18,6 +28,9 @@ export interface NotesState {
   error: null | string;
 }
 
+export interface INewItem {
+  addNewNote: (title: string) => void;
+}
 export enum NotesAction {
   REQUEST_NOTES = 'REQUEST_NOTES',
   RECEIVE_NOTES_SUCCESS = 'RECEIVE_NOTES_SUCCESS',
@@ -41,17 +54,12 @@ export interface RecieveNotesError {
   type: NotesAction.RECEIVE_NOTES_ERROR;
   payload: string;
 }
-// export interface AddNewNoteType {
-//   type: NotesAction.ADD_NEW_NOTE;
-//   payload: [];
-// }
+
 export type NotesActionsType =
   | RequestNotesAction
   | RecieveNotesSuccess
   | RecieveNotesError
-  // | AddNewNoteType;
   | addNewNoteType
   | changeTitleType
   | deleteNoteType
   | changeNoteType;
-// | featchNotesType;

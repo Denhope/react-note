@@ -1,30 +1,24 @@
 import React, { FC, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import s from './App.module.scss';
 import NewNote from './components/NewNote/NewNote';
 import NoteList from './components/NoteList/NodeList';
 import TagsList from './components/TagBar/TagList/TagList';
 import type {} from 'redux-thunk/extend-redux';
-import { addTag, deleteTag, selectTag } from './store/actions-creater/tags';
 import { useTypedSelector } from './hooks/useTypeSelector';
-import { RootState } from './store/reducers';
-
-import {
-  featchNotes,
-  addNote,
-  changeNote,
-  changeTitle,
-  deleteNote,
-} from './store/actions-creater/notes';
 import { useActions } from './hooks/useActions';
+
 export const App: FC = () => {
   const { notesData, error, isLoading } = useTypedSelector((state) => state.notes);
-  // const tags = useSelector<RootState>((state) => state.tags);
-  // const { tags } = useTypedSelector((state) => state.tags);
+  const { tagsData } = useTypedSelector((state) => state.tags);
   const { addNote, changeTitle, deleteNote, featchNotes, changeNote } = useActions();
+  const { featchTags, deleteTag, selectTag, addTag } = useActions();
   const [selectedTag, setSelectedTag] = useState<string>('#all');
   useEffect(() => {
     featchNotes();
+  }, []);
+
+  useEffect(() => {
+    featchTags();
   }, []);
 
   const addNewNote = (title: string) => {
@@ -63,7 +57,7 @@ export const App: FC = () => {
     <div className={s.App}>
       <div className={s.AppWrapper}>
         <NewNote addNewNote={addNewNote}></NewNote>
-        {/* <TagsList tags={tags} deleteTag={deleteTagItem} selectTag={selectTagItem} /> */}
+        <TagsList tags={tagsData} deleteTag={deleteTagItem} selectTag={selectTagItem} />
         <NoteList
           notes={notesData}
           changeText={changeTextField}

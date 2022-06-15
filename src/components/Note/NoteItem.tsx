@@ -1,5 +1,5 @@
 import React, { FC, useCallback } from 'react';
-import { INoteItem } from '../../types/types';
+import { INoteItem } from '../../types/notes';
 import { IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import { TitleField } from './TitleField/TitleField';
