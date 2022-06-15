@@ -16,43 +16,43 @@ import {
   changeTitle,
   deleteNote,
 } from './store/actions-creater/notes';
-
+import { useActions } from './hooks/useActions';
 export const App: FC = () => {
   const { notesData, error, isLoading } = useTypedSelector((state) => state.notes);
-
-  const tags = useSelector<RootState>((state) => state.tags);
-  const dispatch = useDispatch();
+  // const tags = useSelector<RootState>((state) => state.tags);
+  // const { tags } = useTypedSelector((state) => state.tags);
+  const { addNote, changeTitle, deleteNote, featchNotes, changeNote } = useActions();
   const [selectedTag, setSelectedTag] = useState<string>('#all');
   useEffect(() => {
-    dispatch(featchNotes());
+    featchNotes();
   }, []);
 
   const addNewNote = (title: string) => {
-    dispatch(addNote(title));
+    addNote(title);
   };
   const changeNoteTitle = (newValue: string, id: string) => {
-    dispatch(changeTitle(newValue, id));
+    changeTitle(newValue, id);
   };
 
   const deleteNoteItem = (id: string) => {
-    dispatch(deleteNote(id));
+    deleteNote(id);
   };
 
   const changeTextField = (newValue: string, id: string, newTag: string) => {
-    dispatch(changeNote(newValue, id, newTag));
+    changeNote(newValue, id, newTag);
   };
 
   const selectTagItem = (tagName: string) => {
     setSelectedTag(tagName);
-    dispatch(selectTag(tagName));
+    selectTag(tagName);
   };
 
   const deleteTagItem = (id: string) => {
-    dispatch(deleteTag(id));
+    deleteTag(id);
   };
 
   const addTagItem = (tagName: string, noteId: string) => {
-    dispatch(addTag(tagName));
+    addTag(tagName);
   };
   let filtredNotes = notesData;
   if (selectedTag !== '#all') {
