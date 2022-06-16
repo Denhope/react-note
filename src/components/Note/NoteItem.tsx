@@ -1,12 +1,12 @@
 import React, { FC, useCallback } from 'react';
-import { INoteItem } from '../../types/notes';
+import { INoteItemProps } from '../../types/notes';
 import { IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import { TitleField } from './TitleField/TitleField';
 import { TextField } from './TextFild/TextField';
 import s from './NoteItem.module.scss';
 
-const NoteItem: FC<INoteItem> = (props) => {
+const NoteItem: FC<INoteItemProps> = (props) => {
   const addTagCallback = useCallback(
     (tagName: string) => {
       props.addTag(tagName, props.id);

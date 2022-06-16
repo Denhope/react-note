@@ -11,7 +11,7 @@ export type NoteItemType = {
   tag: string;
   noteText: string;
 };
-export interface INoteItem {
+export interface INoteItemProps {
   id: string;
   name: string;
   tag: string;
@@ -26,6 +26,13 @@ export interface NotesState {
   notesData: Array<NoteItemType>;
   isLoading: boolean;
   error: null | string;
+}
+export interface INoteList {
+  notes: Array<NoteItemType>;
+  // changeText: (newValue: string, id: string, newTag: string) => void;
+  // addTag: (tagName: string, noteId: string) => void;
+  // deleteNote: (npteId: string) => void;
+  // changeNoteTitle: (newValue: string, noteId: string) => void;
 }
 
 export interface INewItem {

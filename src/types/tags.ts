@@ -6,11 +6,24 @@ export interface ITagItem {
   selected: boolean;
 }
 
-export interface TagsListProps {
-  tags: Array<ITagItem>;
+export interface ITagProps {
+  name: string;
+  id: string;
+  selected: boolean;
   deleteTag: (id: string) => void;
   selectTag: (tagName: string) => void;
 }
+
+export interface ITagsList {
+  tags: Array<TagItemType>;
+  //   deleteTag: (id: string) => void;
+  selectTag: (tagName: string) => void;
+}
+export type TagsPropsType = {
+  tags: Array<TagItemType>;
+  //   deleteTag: (id: string) => void;
+  selectTag: (tagName: string) => void;
+};
 
 export type TagItemType = {
   id: string;

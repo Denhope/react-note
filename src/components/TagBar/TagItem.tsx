@@ -1,7 +1,7 @@
 import { IconButton } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import React, { FC, useCallback } from 'react';
-import { ITagProps } from '../../types/types';
+import { ITagProps } from '../../types/tags';
 
 import s from './TagItem.module.scss';
 
