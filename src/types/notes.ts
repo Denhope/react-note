@@ -29,10 +29,10 @@ export interface NotesState {
 }
 export interface INoteList {
   notes: Array<NoteItemType>;
-  // changeText: (newValue: string, id: string, newTag: string) => void;
-  // addTag: (tagName: string, noteId: string) => void;
-  // deleteNote: (npteId: string) => void;
-  // changeNoteTitle: (newValue: string, noteId: string) => void;
+  changeText: (newValue: string, id: string, newTag: string) => void;
+  addTag: (tagName: string, noteId: string) => void;
+  deleteNote: (npteId: string) => void;
+  changeNoteTitle: (newValue: string, noteId: string) => void;
 }
 
 export interface INewItem {

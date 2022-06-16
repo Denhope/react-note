@@ -9,7 +9,6 @@ export const featchTags = () => {
     try {
       dispatch({ type: TagsAction.REQUEST_TAGS });
       const response = await axios.get(dataTags);
-      console.log(response.data);
 
       setTimeout(() => {
         dispatch({

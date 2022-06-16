@@ -8,7 +8,6 @@ export const featchNotes = () => {
     try {
       dispatch({ type: NotesAction.REQUEST_NOTES });
       const response = await axios.get(dataNotes);
-      console.log(response.data);
 
       setTimeout(() => {
         dispatch({

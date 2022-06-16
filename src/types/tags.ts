@@ -16,12 +16,12 @@ export interface ITagProps {
 
 export interface ITagsList {
   tags: Array<TagItemType>;
-  //   deleteTag: (id: string) => void;
+  deleteTag: (id: string) => void;
   selectTag: (tagName: string) => void;
 }
 export type TagsPropsType = {
   tags: Array<TagItemType>;
-  //   deleteTag: (id: string) => void;
+  deleteTag: (id: string) => void;
   selectTag: (tagName: string) => void;
 };
 
