@@ -1,9 +1,8 @@
-import {
-  addNewNoteType,
-  changeNoteType,
-  changeTitleType,
-  deleteNoteType,
-} from './../store/actions-creater/notes';
+import // AddNewNoteAction,
+// changeNoteType,
+// changeTitleType,
+// deleteNoteType,
+'./../store/actions-creater/notes';
 
 export type NoteItemType = {
   id: string;
@@ -48,25 +47,55 @@ export enum NotesAction {
   CHANGE_NOTE = 'CHANGE_NOTE',
 }
 
-export interface RequestNotesAction {
+export interface RequestNotesAC {
   type: NotesAction.REQUEST_NOTES;
 }
 
-export interface RecieveNotesSuccess {
+export interface RecieveNotesSuccessAC {
   type: NotesAction.RECEIVE_NOTES_SUCCESS;
   payload: Array<NoteItemType>;
 }
 
-export interface RecieveNotesError {
+export interface RecieveNotesErrorAC {
   type: NotesAction.RECEIVE_NOTES_ERROR;
   payload: string;
 }
 
+export interface AddNewNoteAC {
+  type: NotesAction.ADD_NEW_NOTE;
+  payload: {
+    title: string;
+  };
+}
+export interface ChangeTitleAC {
+  type: NotesAction.CHANGE_NOTE_TITLE;
+  payload: {
+    newValue: string;
+    noteId: string;
+  };
+}
+
+export interface DeleteNoteAC {
+  type: NotesAction.DELETE_NOTE;
+  payload: {
+    noteId: string;
+  };
+}
+
+export interface ChangeNoteAC {
+  type: NotesAction.CHANGE_NOTE;
+  payload: {
+    newValue: string;
+    noteId: string;
+    newTag: string;
+  };
+}
+
 export type NotesActionsType =
-  | RequestNotesAction
-  | RecieveNotesSuccess
-  | RecieveNotesError
-  | addNewNoteType
-  | changeTitleType
-  | deleteNoteType
-  | changeNoteType;
+  | RequestNotesAC
+  | RecieveNotesSuccessAC
+  | RecieveNotesErrorAC
+  | AddNewNoteAC
+  | ChangeTitleAC
+  | DeleteNoteAC
+  | ChangeNoteAC;

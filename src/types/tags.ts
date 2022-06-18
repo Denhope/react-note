@@ -1,5 +1,3 @@
-import { selectTagType, addTagType, deleteTagType } from '../store/actions-creater/tags';
-
 export interface ITagItem {
   id: string;
   tagName: string;
@@ -37,16 +35,16 @@ export interface TagsState {
   error: null | string;
 }
 
-export interface RequestTagsAction {
+export interface RequestTagsAC {
   type: TagsAction.REQUEST_TAGS;
 }
 
-export interface RecieveTagsSuccess {
+export interface RecieveTagsSuccessAC {
   type: TagsAction.RECEIVE_TAGS_SUCCESS;
   payload: Array<TagItemType>;
 }
 
-export interface RecieveTagsError {
+export interface RecieveTagsErrorAC {
   type: TagsAction.RECEIVE_TAGS_ERROR;
   payload: string;
 }
@@ -60,10 +58,31 @@ export enum TagsAction {
   DELETE_TAG = 'DELETE_TAG',
 }
 
+export interface SelectTagAC {
+  type: TagsAction.SELECT_TAG;
+  payload: {
+    tagName: string;
+  };
+}
+
+export interface DeleteTagAC {
+  type: TagsAction.DELETE_TAG;
+  payload: {
+    tagId: string;
+  };
+}
+
+export interface AddTagAC {
+  type: TagsAction.ADD_TAG;
+  payload: {
+    tagName: string;
+  };
+}
+
 export type TagsActionsType =
-  | selectTagType
-  | deleteTagType
-  | addTagType
-  | RecieveTagsError
-  | RecieveTagsSuccess
-  | RequestTagsAction;
+  | SelectTagAC
+  | DeleteTagAC
+  | AddTagAC
+  | RecieveTagsErrorAC
+  | RecieveTagsSuccessAC
+  | RequestTagsAC;

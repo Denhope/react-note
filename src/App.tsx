@@ -9,9 +9,9 @@ import { useActions } from './hooks/useActions';
 export const App: FC = () => {
   const { notesData } = useTypedSelector((state) => state.notes);
   const { tagsData } = useTypedSelector((state) => state.tags);
-  const { addNote, selectTag } = useActions();
-  const { featchTags, deleteTag } = useActions();
-  const { changeTitle, deleteNote, featchNotes, changeNote, addTag } = useActions();
+  // const { addNote, selectTag } = useActions();
+  const { featchTags, deleteTag, selectTag, addTag } = useActions();
+  const { addNote, changeTitle, deleteNote, featchNotes, changeNote } = useActions();
   const [selectedTag, setSelectedTag] = useState<string>('#all');
   useEffect(() => {
     featchNotes();

@@ -21,13 +21,13 @@ export const featchNotes = () => {
   };
 };
 
-export const addNote = (title: string) => {
+export const addNote = (title: string): NotesActionsType => {
   return {
     type: NotesAction.ADD_NEW_NOTE,
     payload: {
       title,
     },
-  } as const;
+  };
 };
 export const changeNote = (newValue: string, noteId: string, newTag: string) => {
   return {
@@ -37,32 +37,24 @@ export const changeNote = (newValue: string, noteId: string, newTag: string) => 
       noteId,
       newTag,
     },
-  } as const;
+  };
 };
 
-export const deleteNote = (noteId: string) => {
+export const deleteNote = (noteId: string): NotesActionsType => {
   return {
     type: NotesAction.DELETE_NOTE,
     payload: {
       noteId,
     },
-  } as const;
+  };
 };
 
-export const changeTitle = (newValue: string, noteId: string) => {
+export const changeTitle = (newValue: string, noteId: string): NotesActionsType => {
   return {
     type: NotesAction.CHANGE_NOTE_TITLE,
     payload: {
       newValue,
       noteId,
     },
-  } as const;
+  };
 };
-
-export type addNewNoteType = ReturnType<typeof addNote>;
-
-export type changeTitleType = ReturnType<typeof changeTitle>;
-
-export type deleteNoteType = ReturnType<typeof deleteNote>;
-
-export type changeNoteType = ReturnType<typeof changeNote>;

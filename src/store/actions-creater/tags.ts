@@ -22,33 +22,29 @@ export const featchTags = () => {
   };
 };
 
-export const selectTag = (tagName: string) => {
+export const selectTag = (tagName: string): TagsActionsType => {
   return {
     type: TagsAction.SELECT_TAG,
     payload: {
       tagName,
     },
-  } as const;
+  };
 };
 
-export const addTag = (tagName: string) => {
+export const addTag = (tagName: string): TagsActionsType => {
   return {
     type: TagsAction.ADD_TAG,
     payload: {
       tagName,
     },
-  } as const;
+  };
 };
 
-export const deleteTag = (tagId: string) => {
+export const deleteTag = (tagId: string): TagsActionsType => {
   return {
     type: TagsAction.DELETE_TAG,
     payload: {
       tagId,
     },
-  } as const;
+  };
 };
-
-export type selectTagType = ReturnType<typeof selectTag>;
-export type deleteTagType = ReturnType<typeof deleteTag>;
-export type addTagType = ReturnType<typeof addTag>;
