@@ -1,0 +1,47 @@
+@import "../../utils/constants.module.scss";
+@import "../../utils/placeholders.module.scss";
+@import "../../utils/mixins.module.scss";
+
+
+.NoteItem {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    width: 25rem;
+    height: 30rem;
+    background-color: $color-primery;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    @include media-mobile {
+        width: 32rem;
+        padding: 1rem;
+    }
+
+
+    &:hover {
+        @extend %transition;
+        box-shadow: 0 8px 13px 5px rgba(0, 0, 0, 0.26);
+    }
+}
+
+.NoteTitleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6rem;
+    overflow: hidden;
+}
+
+.ContentWrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden
+}
+
+.NoteTag {
+    display: block;
+    padding: 1rem;
+    max-width: 10rem;
+    overflow: hidden;
+}
